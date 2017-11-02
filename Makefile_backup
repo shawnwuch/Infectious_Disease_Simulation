@@ -1,0 +1,23 @@
+# Files
+EXEC	:=
+SRC		:= $(wildcard *.c)
+OBJ		:= $(patsubst %.c, %.o, $(SRC))
+
+# Options
+CC		:= icpc
+CPPFLAGS:= --std=c++11 -Wall -Wextra
+LDFLAGS	:=
+LIBS	:= 
+
+# Rules
+info :
+	@echo "You can do: make ex_N, where N is the number of exercise you wish to compile."
+
+$(EXEC) : $(OBJ)
+	$(CC) $(LDFLAGS) $(LIBS) -o $@ $^
+
+%.o : %.c
+	$(CC) $(CPPFLAGS) -c $<
+
+clean:
+	rm -f *~ *.o
