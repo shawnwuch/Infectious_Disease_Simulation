@@ -10,7 +10,10 @@ public:
 	Person(); // default constructor, creates a healthy and susceptible person
 	std::string status_string(); // report current health status in a string
 	void update();	
-	void infect( int&& ); // infect a person, change his/her status to n days to go before recovery
+	void infect( int ); // infect a person, change his/her status to n days to go before recovery
 	bool is_stable(); // report whether the person has been sick and is recovered, true for stable, false for unstable
+
+	// accessor, return an int-type current status
+	int current_status(); 	
 };
 

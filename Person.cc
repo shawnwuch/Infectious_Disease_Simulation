@@ -10,9 +10,9 @@ Person::Person() {};
 std::string Person::status_string() {
 	// return a string according to a person's status
 	// -1 = recovered, 0 = susceptible, positive n = n days to go before recovery
-	if ( status == -1 ) return "recovered";
-	else if (status == 0 ) return "susceptible";
-	else if ( status > 0 ) return "sick (" + std::to_string(status) + " to go)";
+	if ( status == -1 ) { return "recovered"; }
+	else if (status == 0 ) { return "susceptible"; }
+	else if ( status > 0 ) { return "sick (" + std::to_string(status) + " to go)"; }
 	else { throw std::invalid_argument( "The person's health status is undefined" ); }
 };
 
@@ -25,7 +25,7 @@ void Person::update() {
 };
 
 // passing the integer n as a rvalue reference to infect()
-void Person::infect( int &&n ) {
+void Person::infect( int n ) {
 	// infect a person and let disease to run for n days
 	if ( status >= 0 ) status = status + n; 	
 };
@@ -36,4 +36,6 @@ bool Person::is_stable() {
 	else if (status >= 0 ) { return false; }
 	else { throw std::invalid_argument( "The person's health status is undefined" ); }
 };
+
+int Person::current_status() { return status; };
 

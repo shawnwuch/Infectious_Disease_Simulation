@@ -1,4 +1,4 @@
-CC		= icpc
+CC		= g++ #clang++ #g++ #icpc
 CFLAGS	= --std=c++11 -Wall -Wextra #-pg for profiling and debugging
 LDFLAGS	=
 LIBS	=
@@ -11,6 +11,9 @@ info:
 	$(CC) $(CFLAGS) -c $<
 
 ex1: Person.o ex1.o
+	$(CC) $(CFLAGS) -o main $^
+
+ex2: Person.o Population.o ex2.o
 	$(CC) $(CFLAGS) -o main $^
 
 clean:
