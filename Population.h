@@ -24,4 +24,7 @@ public:
 
 	// show the size of population
 	void show_size();
+
+	// set probability of disease transfer
+	void set_probability_of_transfer( double );
 };
