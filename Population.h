@@ -8,7 +8,7 @@ private:
 
 public:
 	// constructor: define a population of n people
-	Population( int&& );
+	Population( int );
 
 	// find some random person to infect a disease and let him sick for some "int-type input" days
 	void random_infection( int );
@@ -27,4 +27,10 @@ public:
 
 	// set probability of disease transfer
 	void set_probability_of_transfer( double );
+
+	// count how many people are stable -- healed from disease or inoculated
+	int count_stable();
+
+	// randomly inoculate a fraction of population based on input
+	void random_inoculation( double );
 };
