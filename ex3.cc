@@ -1,4 +1,4 @@
-// to be programed
+// to be edited
 #include "Population.h"
 #include <iostream>
 
@@ -13,7 +13,8 @@ int main() {
 
 	do {		
 		++step;
-		std::cout << "In step " << step << ", # of sick people: " << somegroup.count_infected() << ": ";
+		somegroup.set_probability_of_transfer(0.5);
+		std::cout << "In step " << step << ", # of sick people: " << somegroup.count_infected() << ": ";	
 		somegroup.show_status();
 		somegroup.update();
 	} while ( somegroup.count_infected() != 0 );
