@@ -45,8 +45,9 @@ void Population::update() {
 // show everybody's current status
 void Population::show_status() { 
 	for ( auto &i : people ) {
-		if ( i.current_status() > 0 ) { std::cout << "+ "; }
-		else { std::cout << "- "; }
+		if ( i.current_status() > 0 ) { std::cout << "+ "; } // infected
+		else if ( i.current_status() == -1 ) { std::cout << "- "; } // recovered or inoculated
+		else { std::cout << "o "; } // susceptible
 	}
 	std::cout << std::endl;
 };
@@ -59,16 +60,19 @@ void Population::show_size() {
 void Population::set_probability_of_transfer( double probability ) {
 	// create a random fraction, spread the disease to neighbors if the fraction is smaller than specified probability, otherwise do nothing
 	for ( auto i = people.begin(); i < people.end(); ++i ) {
-		float random_fraction = (float) rand() / (float) RAND_MAX;
 		// if the person is sick and probability criteria for spreading the disease is met, if current_status()==5 means that the person just got sick in 
 		// current step so he(she) is not contagious
-		if ( i->current_status() > 0 && i->current_status() < 5 && random_fraction <= probability ) {
-			// spread the disease to healthy and not inoculated neighbors
-			if ( i == people.begin() && (i+1)->current_status() == 0 ) { (i+1)->infect( 5 ); }
-			else if ( i == people.end() && (i-1)->current_status() == 0 ) { (i-1)->infect( 5 ); }
-			else { 
-				if ( (i-1)->current_status() == 0 ) { (i-1)->infect( 5 ); }
-				if ( (i+1)->current_status() == 0 ) { (i+1)->infect( 5 ); } 
+		if ( i->current_status() > 0 && i->current_status() < 5 ) {	
+			float random_fraction = (float) rand() / (float) RAND_MAX;
+			
+			if (random_fraction <= probability ) {
+				// spread the disease to healthy and not inoculated neighbors
+				if ( i == people.begin() && (i+1)->current_status() == 0 ) { (i+1)->infect( 5 ); }
+				else if ( i == people.end() && (i-1)->current_status() == 0 ) { (i-1)->infect( 5 ); }
+				else { 
+					if ( (i-1)->current_status() == 0 ) { (i-1)->infect( 5 ); }
+					if ( (i+1)->current_status() == 0 ) { (i+1)->infect( 5 ); } 
+				}
 			}
 		}
 	}

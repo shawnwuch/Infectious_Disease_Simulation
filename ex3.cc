@@ -3,17 +3,24 @@
 
 int main() {
 	
-	int number_of_runs = 5, population_size = 20, number_of_steps = 0, number_of_stable_people = 0; 
+	// Changeable variable, determines total # of runs and size of population
+	int number_of_runs = 5, population_size = 20;
+	
+	// For calculating avg steps disease spreads and avg number of stable people at the end of disease spread. Do not change.
+	int number_of_steps = 0, number_of_stable_people = 0; 
+	
 	// run multiple tests with different transfer probability and group size	
 	for ( int i = 0; i < number_of_runs ; ++i ) { 
 
-    	// initialize a group of people
+		int step = 0;
+    	
+		// initialize a group of people
 		Population somegroup( population_size );
 	    somegroup.show_size();
 			
-		int step = 0;
+		// first inoculate a fraction of the population, then infect a random susceptible person with the disease 
 		somegroup.random_inoculation( 0.5 );
-		somegroup.random_infection( 5 );
+		somegroup.random_infection( 5 ); // disease requires 5 days to recover
 
 		do {		
 			++step;
@@ -21,6 +28,8 @@ int main() {
 					  << ", # of sick people: " << somegroup.count_infected() << ": ";	
 			somegroup.show_status();
 			somegroup.update();
+
+			// set the probability for disease transfer, infect immediate neighbors if probability criteria is met
 			somegroup.set_probability_of_transfer(0.5);
 		} while ( somegroup.count_infected() != 0 );
 	
