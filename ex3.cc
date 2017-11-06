@@ -10,8 +10,9 @@ int main() {
     	// initialize a group of people
 		Population somegroup( population_size );
 	    somegroup.show_size();
-		
+			
 		int step = 0;
+		somegroup.random_inoculation( 0.5 );
 		somegroup.random_infection( 5 );
 
 		do {		

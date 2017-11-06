@@ -8,10 +8,16 @@ Population::Population( int n ) { people = std::vector<Person>(n); size = n; };
 
 // infect a random person inside a population
 void Population::random_infection( int n ) {
-	float random_fraction = (float) rand() / (float) RAND_MAX;
-	int element = ceil( random_fraction * people.size() ); // randomly choose a element from a vector, index = element - 1
-	//std::cout << "random_fraction: " << random_fraction << ", element: " << element << " " << rand() << " " << RAND_MAX << std::endl; // for debugging
-	people[ element - 1 ].infect( n ); // infect the person for n days 	
+	//float random_fraction = (float) rand() / (float) RAND_MAX;
+	//int element = ceil( random_fraction * people.size() ); // randomly choose a element from a vector, index = element - 1
+	
+	int element = rand() % size;
+	// infect the person if the person is healthy and susceptible, otherwise do a recursive call
+	if ( people[ element ].current_status() == 0 ) {
+		people[ element ].infect( n ); // infect the person for n days 	
+	} else {
+		Population::random_infection( n );
+	}
 };
 
 
@@ -80,6 +86,16 @@ int Population::count_stable() {
 
 // inoculate a random fraction of people based on input
 void Population::random_inoculation( double fraction ) {
-	int num_inoculated = round( fraction * size );
-	
+	// calculate number of inoculated people according to input fraction
+	int num_inoculated = round( fraction * size ), count = 0;
+	std::cout << "inoculation target: " << num_inoculated << std::endl;
+	while ( count < num_inoculated ) {
+		int index = rand() % size; // create a random index in the range of 0 to size-1 
+		
+		// inoculate the person if healthy and susceptible
+		if ( people[ index ].current_status() == 0 ) {
+			people[ index ].current_status() = -1;
+			++count;
+		}
+	}
 };

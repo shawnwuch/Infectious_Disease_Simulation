@@ -14,6 +14,6 @@ public:
 	bool is_stable(); // report whether the person has been sick and is recovered, true for stable, false for unstable
 
 	// accessor, return an int-type current status
-	int current_status(); 	
+	int &current_status(); 	
 };
 

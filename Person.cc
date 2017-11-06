@@ -37,5 +37,5 @@ bool Person::is_stable() {
 	else { throw std::invalid_argument( "The person's health status is undefined" ); }
 };
 
-int Person::current_status() { return status; };
+int &Person::current_status() { return status; };
 
