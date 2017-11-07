@@ -19,5 +19,8 @@ ex2: Person.o Population.o ex2.o
 ex3: Person.o Population.o ex3.o
 	$(CC) $(CFLAGS) -o main $^
 
+ex4: Person.o Population.o ex4.o
+	$(CC) $(CFLAGS) -o main $^
+	
 clean:
 	rm -f main *~ *.o main

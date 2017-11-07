@@ -33,4 +33,7 @@ public:
 
 	// randomly inoculate a fraction of population based on input
 	void random_inoculation( double );
+	
+	// randomly transmit disease from a sick person to people he/she have contact with, limited by a transfer probability
+	void random_disease_transmission( int, double );
 };
