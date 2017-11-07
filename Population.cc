@@ -90,7 +90,7 @@ int Population::count_stable() {
 void Population::random_inoculation( double fraction ) {
 	// calculate number of inoculated people according to input fraction
 	int num_inoculated = round( fraction * size ), count = 0;
-	std::cout << "inoculation target: " << num_inoculated << std::endl;
+	//std::cout << "inoculation target: " << num_inoculated << std::endl;
 	while ( count < num_inoculated ) {
 		int index = rand() % size; // create a random index in the range of 0 to size-1 
 		

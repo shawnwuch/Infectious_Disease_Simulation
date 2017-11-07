@@ -1,23 +1,29 @@
-# Files
-EXEC	:=
-SRC		:= $(wildcard *.c)
-OBJ		:= $(patsubst %.c, %.o, $(SRC))
-
-# Options
-CC		:= icpc
-CPPFLAGS:= --std=c++11 -Wall -Wextra
-LDFLAGS	:=
-LIBS	:= 
+CC		= g++ #clang++ #g++ #icpc
+CFLAGS	= --std=c++11 -Wall -Wextra #-pg for profiling and debugging
+LDFLAGS	=
+LIBS	=
 
 # Rules
-info :
-	@echo "You can do: make ex_N, where N is the number of exercise you wish to compile."
+info:
+	@echo "You can do: make exN, where N is the number of exercise you wish to compile."
 
-$(EXEC) : $(OBJ)
-	$(CC) $(LDFLAGS) $(LIBS) -o $@ $^
+%.o: %.cc
+	$(CC) $(CFLAGS) -c $<
 
-%.o : %.c
-	$(CC) $(CPPFLAGS) -c $<
+ex1: Person.o ex1.o
+	$(CC) $(CFLAGS) -o main $^
+
+ex2: Person.o Population.o ex2.o
+	$(CC) $(CFLAGS) -o main $^
+
+ex3: Person.o Population.o ex3.o
+	$(CC) $(CFLAGS) -o main $^
+
+ex4: Person.o Population.o ex4.o
+	$(CC) $(CFLAGS) -o main $^
+
+ex5: Person.o Population.o ex5.o
+	$(CC) $(CFLAGS) -o main $^
 
 clean:
-	rm -f *~ *.o
+	rm -f main *~ *.o main

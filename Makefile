@@ -10,17 +10,17 @@ info:
 %.o: %.cc
 	$(CC) $(CFLAGS) -c $<
 
-ex1: Person.o ex1.o
+
+#% : %.cc
+#PROGRAMS = ex1 ex5
+#.SECONDEXPANSION:
+#${PROGRAMS} : Person.o Population.o $$@.o
+#	$(CC) $(CFLAGS) -o main $^
+
+.PRECIOUS: %.o
+ex%: Person.o Population.o ex%.o
 	$(CC) $(CFLAGS) -o main $^
 
-ex2: Person.o Population.o ex2.o
-	$(CC) $(CFLAGS) -o main $^
-
-ex3: Person.o Population.o ex3.o
-	$(CC) $(CFLAGS) -o main $^
-
-ex4: Person.o Population.o ex4.o
-	$(CC) $(CFLAGS) -o main $^
-	
 clean:
 	rm -f main *~ *.o main
+
