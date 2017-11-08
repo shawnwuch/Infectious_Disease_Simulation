@@ -4,7 +4,7 @@ clc; clear; close all;
 
 set(0,'defaultfigurecolor',[1 1 1]);
 figure();
-raw_data = importdata('../data.txt');
+raw_data = importdata('../data_200ppl.txt');
 data = raw_data.data;
 x = data(:,1); % disease transfer probability
 y = data(:,2); % Inoculation fraction
