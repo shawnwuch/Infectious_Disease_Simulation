@@ -15,6 +15,9 @@ public:
 
 	// return an int-type head count of total infected people at the time of inquiry
 	int count_infected();
+	
+	// return an int-type head count of total people that have been sick during the run of disease
+	int count_have_been_sick();
 
 	// update everyone's status in the people vector
 	void update();
@@ -30,7 +33,7 @@ public:
 
 	// count how many people are stable -- healed from disease or inoculated
 	int count_stable();
-
+	
 	// randomly inoculate a fraction of population based on input
 	void random_inoculation( double );
 	

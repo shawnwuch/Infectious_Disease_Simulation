@@ -26,8 +26,11 @@ void Person::update() {
 
 // passing the integer n as a rvalue reference to infect()
 void Person::infect( int n ) {
-	// infect a person and let disease to run for n days
-	if ( status >= 0 ) status = status + n; 	
+	// infect a susceptible person and let disease to run for n days
+	if ( status == 0 ) { 
+		status = status + n;
+		have_been_sick = true;
+	}
 };
 
 bool Person::is_stable() {
@@ -39,3 +42,4 @@ bool Person::is_stable() {
 
 int &Person::current_status() { return status; };
 
+bool Person::been_sick() { return have_been_sick; };

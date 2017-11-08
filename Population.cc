@@ -31,6 +31,17 @@ int Population::count_infected() {
 	return infected_count;
 };
 
+// count how many people have been sick during the disease run
+int Population::count_have_been_sick() {
+	int have_been_sick_count = 0;
+	for ( auto &i : people ) {
+		if ( i.been_sick() ) {
+			++have_been_sick_count;
+		}
+	}
+	return have_been_sick_count;
+};
+
 
 // update everyone's health status by 1 step
 void Population::update() {
@@ -85,6 +96,7 @@ int Population::count_stable() {
 	}
 	return stable_count;
 };
+
 
 // inoculate a random fraction of people based on input
 void Population::random_inoculation( double fraction ) {

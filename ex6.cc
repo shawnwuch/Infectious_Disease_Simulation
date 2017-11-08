@@ -5,10 +5,12 @@
 int main() {
 		
 	// Changeable variable, determines total # of runs and size of population
-	int number_of_runs = 200, population_size = 500;
+	int number_of_runs = 200, population_size = 200; 
+	double probability_of_vaccine_effectiveness = 0.4; // input a number between 0 and 1
 	
-	std::cout << "This file investigates the length of disease run with respect to disease transfer probability and inoculation fraction of a group of people." \
-			  << "This file also computes the average number of people infected by the disease for each (transfer_probability + inoculation_fraction) set." \
+	std::cout << "This file investigates the length of disease run with respect to disease transfer probability and inoculation fraction of a group of people. " \
+			  << "This file also computes the average number of people infected by the disease for each (transfer_probability + inoculation_fraction) set. " \
+			  << "An additional probability for vaccine effectiveness is implemented is this exercise." \
 			  << std::endl;
 	std::ofstream myfile;
 	myfile.open ("data.txt", std::ios::app);
@@ -29,7 +31,7 @@ int main() {
 				//somegroup.show_size();
 					
 				// first inoculate a fraction of the population, then infect a random susceptible person with the disease 
-				somegroup.random_inoculation( inoculation_fraction * 0.01 );
+				somegroup.random_inoculation( inoculation_fraction * 0.01 * probability_of_vaccine_effectiveness );
 				somegroup.random_infection( 5 ); // disease requires 5 days to recover
 
 				do {		

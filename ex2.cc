@@ -3,6 +3,8 @@
 
 int main() {
 	
+	std::cout << "This file implements the population class and a display mechanism showing the health status of each person in the population." << std::endl;
+
 	// initialize with a group of 10 people
 	Population somegroup( 10 );
 	somegroup.show_size();

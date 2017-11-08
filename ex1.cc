@@ -2,6 +2,9 @@
 #include <iostream>
 
 int main() {
+
+	std::cout << "This file implements the person class with a display mechanism showing the person's health status." << std::endl;
+
 	Person joe;
 	int step=0;
 	

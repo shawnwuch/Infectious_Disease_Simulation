@@ -3,6 +3,8 @@
 
 int main() {
 	
+	std::cout << "This file implements the disease transmission function to directly adjacent neighbors in a 1-D space." << std::endl;
+
 	// Changeable variable, determines total # of runs and size of population
 	int number_of_runs = 5, population_size = 20;
 	
@@ -45,7 +47,7 @@ int main() {
 		number_of_stable_people += somegroup.count_stable();
 	}
 	std::cout << "===== Summary =====" << std::endl;
-	std::cout << "Disease will run at a average of " << number_of_steps / number_of_runs << " days" << std::endl;
-	std::cout << "Average number of people in stable condition after the spread of disease is " << number_of_stable_people / number_of_runs << std::endl;
+	std::cout << "Disease will run at a average of " << number_of_steps * 1. / number_of_runs << " days" << std::endl;
+	std::cout << "Average number of people in stable condition after the spread of disease is " << number_of_stable_people * 1. / number_of_runs << std::endl;
 	return 0;
 }
