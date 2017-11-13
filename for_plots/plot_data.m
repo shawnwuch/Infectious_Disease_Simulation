@@ -3,7 +3,7 @@
 clc; clear; close all;
 people_num=200;
 set(0,'defaultfigurecolor',[1 1 1]);
-raw_data = importdata('../data.txt');
+raw_data = importdata('../data_200ppl.txt');
 data = raw_data.data;
 x = data(:,1); % disease transfer probability
 y = data(:,2); % Inoculation fraction
@@ -44,3 +44,30 @@ set(gca, 'fontsize', 14);
 grid on; 
 box on;
 % zlabel('');
+
+figure();
+[c, h] = contour(xx,yy,zz, 'k', 'linewidth', 1.2);
+title('Average Disease Run (steps)');
+clabel(c, h, 'fontsize', 14);
+xlabel('Disease Transfer Probability');
+ylabel('Fraction of Inoculated People');
+set(gca, 'linewidth', 1.2, 'fontsize', 14);
+box on;
+
+figure();
+[c, h] = contour(xx,yy,kk, 'k', 'linewidth', 1.2);
+title('Average Number of People Infected by the Disease');
+clabel(c, h, 'fontsize', 14);
+xlabel('Disease Transfer Probability');
+ylabel('Fraction of Inoculated People');
+set(gca, 'linewidth', 1.2, 'fontsize', 14);
+box on;
+
+figure();
+[c, h] = contour(xx,yy,kk./people_num, [0:0.025:0.05], 'k', 'linewidth', 1.2);
+title('Average Fraction of People Infected by the Disease');
+clabel(c, h, 'fontsize', 13);
+xlabel('Disease Transfer Probability');
+ylabel('Fraction of Inoculated People');
+set(gca, 'linewidth', 1.2, 'fontsize', 14);
+box on;

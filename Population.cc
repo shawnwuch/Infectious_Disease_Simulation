@@ -108,7 +108,7 @@ void Population::random_inoculation( double fraction ) {
 		
 		// inoculate the person if healthy and susceptible
 		if ( people[ index ].current_status() == 0 ) {
-			people[ index ].current_status() = -1;
+			people[ index ].inoculate();
 			++count;
 		}
 	}

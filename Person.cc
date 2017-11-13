@@ -40,6 +40,8 @@ bool Person::is_stable() {
 	else { throw std::invalid_argument( "The person's health status is undefined" ); }
 };
 
-int &Person::current_status() { return status; };
+int Person::current_status() { return status; };
+
+void Person::inoculate() { status = -1; };
 
 bool Person::been_sick() { return have_been_sick; };

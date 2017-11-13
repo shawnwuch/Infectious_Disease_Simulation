@@ -1,0 +1,54 @@
+\documentclass{article}
+
+\begin{document}
+
+\section*{Question 4}
+\subsection*{Prove, mathematically, that both roots are negative.}
+
+% Enter your answer to Question 4 below this line
+Answer: Since a=1 and c=1,
+$$b^{2}-4ac = b^{2}-4$$
+$$\forall \, 10 \leq b \leq 10^{15}$$
+$$10^{2} \leq b^{2} \leq 10^{30}$$ 
+so
+$$0 < \sqrt{b^{2}-4} < \sqrt{b^{2}}=b$$
+therefore,
+$$-b+\sqrt{b^{2}-4} < 0$$ and
+$$-b-\sqrt{b^{2}-4} < 0$$
+hence the two roots
+$$x_1=\frac{-b+\sqrt{b^{2}-4ac}}{2a}=\frac{-b+\sqrt{b^{2}-4}}{2} < 0$$
+$$x_2=\frac{-b-\sqrt{b^{2}-4ac}}{2a}=\frac{-b-\sqrt{b^{2}-4}}{2} < 0$$
+
+
+\section*{Question 5}
+\subsection*{What is $x_1 x_2$ in terms of $a, b, c$?}
+
+% Enter your answer to Question 5 below this line
+Answer: $\frac{c}{a}$.
+
+
+\section*{Question 6}
+\subsection*{Look at \texttt{roots.txt}.  What do you notice about one of the
+             roots?}
+
+% Enter your answer to Question 6 below this line
+Answer: As b gets larger, one of the roots ($x_1$) approaches 0 and the other one ($x_2$) approaches the value of -b.
+
+
+\section*{Question 7}
+\subsection*{Look at the formula for the quadratic equation for the
+             solution $x_1$. For fixed $a$ and $c$, how do the magnitudes of
+             terms in the numerator compare as b gets large?}
+
+% Enter your answer to Question 7 below this line
+Answer: As b gets large, $\sqrt{b^{2}-4ac} \rightarrow \sqrt{b^{2}} = b$, so the numerator of $x_1$, which is equal to $-b+\sqrt{b^{2}-4ac} \rightarrow -b + b \rightarrow 0$, becomes less negative and approaches 0.
+
+
+\section*{Question 8}
+\subsection*{Given your analysis in 7, discuss what you think is happening in
+             the finite precision calculation of $x_1$?}
+
+% Enter your answer to Question 8 below this line
+Answer: The difference between b and $\sqrt{b^{2}-4ac}$ becomes too small at large b such that the addition of -b and $\sqrt{b^{2}-4ac}$ gives results that are smaller than machine epsilon ($\epsilon$), thus making $x_1=0$ at large b, even if the true $x_1$ is not 0.
+
+\end{document}
