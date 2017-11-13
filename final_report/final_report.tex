@@ -1,54 +1,33 @@
 \documentclass{article}
-
+\usepackage{graphicx}
 \begin{document}
 
-\section*{Question 4}
-\subsection*{Prove, mathematically, that both roots are negative.}
+\title{SDS 392 Intro. to Sci. Programming\\ Final Project: Infectious Disease Simulation}
+\author{Chu-Hsiang Wu (cw32746), Petroleum Engineering department, The University of Texas at Austin}
+\maketitle
+
+\section*{Contagion}
+\subsection*{Run a number of simulations with population sizes and contagion probabilities. Are there cases where people escape getting sick?}
 
 % Enter your answer to Question 4 below this line
-Answer: Since a=1 and c=1,
-$$b^{2}-4ac = b^{2}-4$$
-$$\forall \, 10 \leq b \leq 10^{15}$$
-$$10^{2} \leq b^{2} \leq 10^{30}$$ 
-so
-$$0 < \sqrt{b^{2}-4} < \sqrt{b^{2}}=b$$
-therefore,
-$$-b+\sqrt{b^{2}-4} < 0$$ and
-$$-b-\sqrt{b^{2}-4} < 0$$
-hence the two roots
-$$x_1=\frac{-b+\sqrt{b^{2}-4ac}}{2a}=\frac{-b+\sqrt{b^{2}-4}}{2} < 0$$
-$$x_2=\frac{-b-\sqrt{b^{2}-4ac}}{2a}=\frac{-b-\sqrt{b^{2}-4}}{2} < 0$$
+Answer:
+
+\subsection*{Incorporate inoculation: read another number representing the percentage of people that has been vaccinated. Choose those members of the population randomly. Describe the effect of vaccinated people on the spread of the disease. Why is this model unrealistic.}
+
+% Enter your answer below this line
+
+\section*{Spreading}
+\subsection*{Code the random interactions. Now run a number of simulations varying$\colon$ 1. The percentage of people inoculated, and 2. the chance the disease is transmitted on contact. Record how long the disease runs through the population. With a fixed degree of contagiousness, how is this number of function of the percentage that is vaccinated? Investigate the matter of Ôherd immunityÕ: if enough people are vaccinated, then some people who are not will still never get sick. LetÕs say you want to have this probability over 95 percent. Investigate the percentage of inoculation that is needed for this as a function of the contagiousness of the disease.}
+
+% Enter your answer below this line
+Answer: 
 
 
-\section*{Question 5}
-\subsection*{What is $x_1 x_2$ in terms of $a, b, c$?}
 
-% Enter your answer to Question 5 below this line
-Answer: $\frac{c}{a}$.
+\subsection*{You can make the model more realistic by letting inoculation be only partly effective. For instance, 50\% of people got the flu vaccine, but it was only 40\% effective; 90\% of people have the measles vaccine, and it is about 97\%effective. How does your model function in this case? Keep in mind that different diseases have different degrees of infectiousness.}
 
+% Enter your answer below this line
+Answer:
 
-\section*{Question 6}
-\subsection*{Look at \texttt{roots.txt}.  What do you notice about one of the
-             roots?}
-
-% Enter your answer to Question 6 below this line
-Answer: As b gets larger, one of the roots ($x_1$) approaches 0 and the other one ($x_2$) approaches the value of -b.
-
-
-\section*{Question 7}
-\subsection*{Look at the formula for the quadratic equation for the
-             solution $x_1$. For fixed $a$ and $c$, how do the magnitudes of
-             terms in the numerator compare as b gets large?}
-
-% Enter your answer to Question 7 below this line
-Answer: As b gets large, $\sqrt{b^{2}-4ac} \rightarrow \sqrt{b^{2}} = b$, so the numerator of $x_1$, which is equal to $-b+\sqrt{b^{2}-4ac} \rightarrow -b + b \rightarrow 0$, becomes less negative and approaches 0.
-
-
-\section*{Question 8}
-\subsection*{Given your analysis in 7, discuss what you think is happening in
-             the finite precision calculation of $x_1$?}
-
-% Enter your answer to Question 8 below this line
-Answer: The difference between b and $\sqrt{b^{2}-4ac}$ becomes too small at large b such that the addition of -b and $\sqrt{b^{2}-4ac}$ gives results that are smaller than machine epsilon ($\epsilon$), thus making $x_1=0$ at large b, even if the true $x_1$ is not 0.
 
 \end{document}

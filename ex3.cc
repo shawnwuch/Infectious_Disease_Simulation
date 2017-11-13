@@ -6,7 +6,7 @@ int main() {
 	std::cout << "This file implements the disease transmission function to directly adjacent neighbors in a 1-D space." << std::endl;
 
 	// Changeable variable, determines total # of runs and size of population
-	int number_of_runs = 5, population_size = 20;
+	int number_of_runs = 10, population_size = 200;
 	
 	// For calculating avg steps disease spreads and avg number of stable people at the end of disease spread. Do not change.
 	int number_of_steps = 0, number_of_stable_people = 0; 
@@ -21,7 +21,7 @@ int main() {
 	    somegroup.show_size();
 			
 		// first inoculate a fraction of the population, then infect a random susceptible person with the disease 
-		somegroup.random_inoculation( 0.5 );
+		somegroup.random_inoculation( 0 );
 		somegroup.random_infection( 5 ); // disease requires 5 days to recover
 
 		do {		

@@ -3,9 +3,9 @@
 clc; clear; close all;
 people_num=200;
 set(0,'defaultfigurecolor',[1 1 1]);
-raw_data = importdata('../data_200ppl.txt');
+raw_data = importdata('../data_200ppl_0.4vaccine_effectiveness.txt');
 data = raw_data.data;
-x = data(:,1); % disease transfer probability
+x = data(:,1); % disease Transmission probability
 y = data(:,2); % Inoculation fraction
 z = data(:,3); % Avg disease run
 j = data(:,4); % Avg stable ppl after disrease ends
@@ -18,18 +18,18 @@ kk = reshape(k, 21, 20);
 
 figure();
 surface( xx, yy, zz );
-xlabel('Disease Transfer Probability');
-ylabel('Fraction of Inoculated People');
+xlabel('Disease Transmission Probability');
+ylabel('Fraction of People Inoculated');
 zlabel('Average Disease Run (steps)');
 set(gca, 'fontsize', 14);
 grid on; 
 box on;
 
 figure();
-surface( xx, yy, kk );
-xlabel('Disease Transfer Probability');
-ylabel('Fraction of Inoculated People');
-zlabel('Average Number of People Infected by the Disease');
+surface( xx, yy, kk./people_num );
+xlabel('Disease Transmission Probability');
+ylabel('Fraction of People Inoculated');
+zlabel('Average Fraction of Population Infected by the Disease');
 set(gca, 'fontsize', 14);
 grid on; 
 box on;
@@ -37,8 +37,8 @@ box on;
 figure();
 ax = scatter( xx(kk <= people_num * 0.05), yy(kk <= people_num * 0.05), 'filled' );
 set(ax, 'linewidth', 1.2, 'markeredgecolor', 'k');
-xlabel('Disease Transfer Probability');
-ylabel('Fraction of Inoculated People');
+xlabel('Disease Transmission Probability');
+ylabel('Fraction of People Inoculated');
 title('Cases where >= 95% of People Never Get Sick')
 set(gca, 'fontsize', 14);
 grid on; 
@@ -49,17 +49,17 @@ figure();
 [c, h] = contour(xx,yy,zz, 'k', 'linewidth', 1.2);
 title('Average Disease Run (steps)');
 clabel(c, h, 'fontsize', 14);
-xlabel('Disease Transfer Probability');
-ylabel('Fraction of Inoculated People');
+xlabel('Disease Transmission Probability');
+ylabel('Fraction of People Inoculated');
 set(gca, 'linewidth', 1.2, 'fontsize', 14);
 box on;
 
 figure();
-[c, h] = contour(xx,yy,kk, 'k', 'linewidth', 1.2);
-title('Average Number of People Infected by the Disease');
+[c, h] = contour(xx,yy,kk./people_num, 'k', 'linewidth', 1.2);
+title('Average Fraction of Population Infected by the Disease');
 clabel(c, h, 'fontsize', 14);
-xlabel('Disease Transfer Probability');
-ylabel('Fraction of Inoculated People');
+xlabel('Disease Transmission Probability');
+ylabel('Fraction of People Inoculated');
 set(gca, 'linewidth', 1.2, 'fontsize', 14);
 box on;
 
@@ -67,7 +67,7 @@ figure();
 [c, h] = contour(xx,yy,kk./people_num, [0:0.025:0.05], 'k', 'linewidth', 1.2);
 title('Average Fraction of People Infected by the Disease');
 clabel(c, h, 'fontsize', 13);
-xlabel('Disease Transfer Probability');
-ylabel('Fraction of Inoculated People');
+xlabel('Disease Transmission Probability');
+ylabel('Fraction of People Inoculated');
 set(gca, 'linewidth', 1.2, 'fontsize', 14);
 box on;
