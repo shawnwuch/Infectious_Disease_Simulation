@@ -22,5 +22,5 @@ ex%: Person.o Population.o ex%.o
 	$(CC) $(CFLAGS) -o main $^
 
 clean:
-	rm -f main *~ *.o main
+	rm -f *~ *.o main
 
