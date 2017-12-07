@@ -1,0 +1,19 @@
+This directory contains the files for the final project of SDS392 Intro. to Sci. Programming -- Infectuous Disease.
+There are a total of 6 exercises, ex1, ex2 ... ex6. The source code is included in this folder, and you can use make exN to build them, where N
+is the number of exercise you want to build.
+
+Below are the descriptions for each of the exercise:
+	ex1: This exercise implements the person class with a display mechanism showing the person's health status.
+	ex2: This exercise implements the population class and a display mechanism showing the health status of each person in the population.
+	ex3: This exercise implements the disease transmission function to directly adjacent neighbors in a 1-D space.
+	ex4: This exercise is the first implementation of random disease transmission upon contact -- with specified number of contacted people
+	ex5: This file is an extension of ex4, with two for loops and a file output mechanism added for investigating the length of disease run with respect 
+	     to disease transfer probability and inoculation fraction of a group of people.
+	ex6: This file is an extension of ex5, with a probability_of_vaccine_effectiveness implemented to investigate the length of disease run under the circumstances
+		 where the vaccine is only partly effective.
+
+There are two additional subdirectories:
+	1. for_plots: this directory includes a matlab script 'plot_data.m' and 4 additional text files that includes the ouput data of ex5 and ex6 i
+	 			  from my own investigation. Plots in my final report are based on those text files.
+	2. final_report: this directory includes a word document and a pdf file both named 'final_report'. Those are my summary and findings of this infectuous disease 
+				     final project.

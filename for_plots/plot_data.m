@@ -1,9 +1,9 @@
 % This script plots the outcome of disease simulation using the data
 % stored in data.txt
 clc; clear; close all;
-people_num=200;
+people_num=200; % the number of people in the population, set according to input data
 set(0,'defaultfigurecolor',[1 1 1]);
-raw_data = importdata('../data_200ppl_0.4vaccine_effectiveness.txt');
+raw_data = importdata('./data_200ppl_0.4vaccine_effectiveness.txt'); % change the input file name to read different files
 data = raw_data.data;
 x = data(:,1); % disease Transmission probability
 y = data(:,2); % Inoculation fraction

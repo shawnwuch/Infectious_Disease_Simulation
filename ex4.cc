@@ -3,7 +3,7 @@
 
 int main() {
 	
-	std::cout << "This file is the first implementation of random disease transmission upon contact -- with specified number of contacted people" << std::endl;
+	std::cout << "This file is the first implementation of random disease transmission upon contact -- with specified number of contacted people." << std::endl;
 
 	// Changeable variable, determines total # of runs and size of population
 	int number_of_runs = 1000, population_size = 20;

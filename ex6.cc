@@ -1,3 +1,4 @@
+// This code investigates disease transmission under the circumstance that the vaccine is only partly effective
 #include "Population.h"
 #include <iostream>
 #include <fstream>
