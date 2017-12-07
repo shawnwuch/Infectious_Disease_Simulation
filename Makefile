@@ -5,7 +5,7 @@ LIBS	=
 
 # Rules
 info:
-	@echo "You can do: make exN, where N is the number of exercise you wish to compile."
+	@echo "You can do: make exN, where N is the number of exercise you wish to compile. A binary file 'main' will be generated after you make the exercise"
 
 %.o: %.cc
 	$(CC) $(CFLAGS) -c $<
