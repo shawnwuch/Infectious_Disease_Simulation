@@ -11,7 +11,7 @@ int main() {
 	// For calculating avg steps disease spreads and avg number of stable people at the end of disease spread. Do not change.
 	int number_of_steps = 0, number_of_stable_people = 0; 
 	
-	// run multiple tests with different transfer probability and group size	
+	// You can manually run multiple tests with different transfer probability and group size	
 	for ( int i = 0; i < number_of_runs ; ++i ) { 
 
 		int step = 0;

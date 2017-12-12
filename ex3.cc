@@ -11,7 +11,7 @@ int main() {
 	// For calculating avg steps disease spreads and avg number of stable people at the end of disease spread. Do not change.
 	int number_of_steps = 0, number_of_stable_people = 0; 
 	
-	// run multiple tests with different transfer probability and group size	
+	// You can manually run multiple tests with different transfer probability and group size	
 	for ( int i = 0; i < number_of_runs ; ++i ) { 
 
 		int step = 0;
@@ -35,7 +35,7 @@ int main() {
 			somegroup.set_probability_of_transfer(0.5);
 		} while ( somegroup.count_infected() != 0 );
 	
-		// to obtain similar output as shown on the book, not absolutely required
+		// to obtain similar output as shown in the book, not absolutely required
 		std::cout << "In step " << ++step << ", # of stable people: " << somegroup.count_stable() \
 				  << ", # of sick people: " << somegroup.count_infected() << ": ";
 		somegroup.show_status();

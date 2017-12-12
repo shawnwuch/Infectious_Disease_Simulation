@@ -43,10 +43,8 @@ int main() {
 					somegroup.random_disease_transmission( 6, transfer_probability * 0.01 );
 				} while ( somegroup.count_infected() != 0 );
 			
-				// output final condition for each person in the group
 
 				// summary of how long the disease has been spreading
-
 				number_of_steps += step;
 				number_of_stable_people += somegroup.count_stable();
 				number_of_people_have_been_sick += somegroup.count_have_been_sick();	

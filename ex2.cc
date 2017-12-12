@@ -19,7 +19,7 @@ int main() {
 		somegroup.update();
 	} while ( somegroup.count_infected() != 0 );
 	
-	// to obtain similar output as shown on the book, not absolutely required
+	// to obtain similar output as shown in the book, not absolutely required
 	std::cout << "In step " << ++step << ", # of sick people: " << somegroup.count_infected() << ": ";
 	somegroup.show_status();
 

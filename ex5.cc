@@ -13,6 +13,8 @@ int main() {
 	std::ofstream myfile;
 	myfile.open ("data.txt", std::ios::app);
 	myfile << "transfer_probability    inoculation_fraction    avg_steps    avg_stable_ppl    avg_num_of_people_have_been_sick\n";
+	
+	// Perform a parametric study on disease transmission for the given population size.
 	for ( int inoculation_fraction = 0; inoculation_fraction <= 95; inoculation_fraction += 5 ) {	
 		for ( int transfer_probability = 0; transfer_probability <= 100; transfer_probability += 5 ) {
 			
@@ -40,8 +42,6 @@ int main() {
 					somegroup.random_disease_transmission( 6, transfer_probability * 0.01 );
 				} while ( somegroup.count_infected() != 0 );
 			
-				// output final condition for each person in the group
-
 				// summary of how long the disease has been spreading
 				number_of_steps += step;
 				number_of_stable_people += somegroup.count_stable();
